@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Vendas - SOA</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #0056b3; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #004494; }
+        .log-box { margin-top: 20px; background: #2d2d2d; color: #00ff00; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Loja Frontend (Cliente)</h2>
+    <p style="text-align: center; color: #666;">Enviando dados para o Barramento SOA (Porta 3000)</p>
+
+    <div class="form-group">
+        <label>ID do Produto</label>
+        <input type="text" id="produtoId" value="PROD-001">
+    </div>
+    <div class="form-group">
+        <label>Quantidade</label>
+        <input type="number" id="quantidade" value="2">
+    </div>
+    <div class="form-group">
+        <label>ID do Cliente</label>
+        <input type="text" id="clienteId" value="987">
+    </div>
+    <div class="form-group">
+        <label>Valor Total (R$)</label>
+        <input type="number" id="valorTotal" value="150.00">
+    </div>
+
+    <button onclick="enviarParaESB()">Processar Venda via Barramento</button>
+
+    <div id="resposta-log" class="log-box"></div>
+</div>
+
+<script>
+    async function enviarParaESB() {
+        const logBox = document.getElementById('resposta-log');
+        logBox.style.display = 'block';
+        logBox.innerText = "A contatar o ESB na porta 3000...";
+
+        const payload = {
+            produtoId: document.getElementById('produtoId').value,
+            quantidade: parseInt(document.getElementById('quantidade').value),
+            clienteId: document.getElementById('clienteId').value,
+            valorTotal: parseFloat(document.getElementById('valorTotal').value)
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/api/esb/processar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            const data = await response.json();
+            logBox.innerText = "[RESPOSTA DO BARRAMENTO SOA]\n\n" + JSON.stringify(data, null, 2);
+        } catch (error) {
+            logBox.style.color = '#ff4444';
+            logBox.innerText = "Erro ao contactar o servidor. O esb.js está a correr?";
+        }
+    }
+</script>
+
+</body>
+</html>
