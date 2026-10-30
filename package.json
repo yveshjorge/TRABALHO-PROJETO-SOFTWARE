@@ -4,7 +4,10 @@
   "description": "",
   "main": "esb.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node esb.js",
+    "start:inventario": "node inventario.js",
+    "start:vendas": "node vendas.js",
+    "test": "node --test tests/integracao.test.js"
   },
   "keywords": [],
   "author": "",
