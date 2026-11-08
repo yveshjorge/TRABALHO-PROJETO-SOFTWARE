@@ -7,6 +7,7 @@ Esta pasta reúne os arquivos finais da apresentação e do relatório, além da
 - [Relatório técnico final em PDF](relatorio/Relatorio_Tecnico_SOA_UCB_Final.pdf) — inclui as evidências da execução no apêndice.
 - [Apresentação em PowerPoint](apresentacao/SOA_UCB_Apresentacao_Com_Evidencias.pptx) — slides com as capturas dos cenários de sucesso e falha.
 - [Guia para apresentar e ensaiar](apresentacao/Guia_de_Apresentacao_SOA_UCB.md) — roteiro, argumentos arquiteturais, perguntas prováveis e checklist.
+- [Gravação da demonstração da PoC](video/Demonstracao_PoC_SOA.mp4) — vídeo de contingência da execução no navegador.
 
 ## Evidências da PoC
 
