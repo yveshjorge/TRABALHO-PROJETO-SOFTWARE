@@ -106,6 +106,7 @@ Os arquivos para avaliação estão organizados em [entrega/](entrega/README.md)
 - [Relatório técnico final em PDF, com apêndice de evidências](entrega/relatorio/Relatorio_Tecnico_SOA_UCB_Final.pdf)
 - [Apresentação PowerPoint com capturas da PoC](entrega/apresentacao/SOA_UCB_Apresentacao_Com_Evidencias.pptx)
 - [Guia de apresentação e ensaio](entrega/apresentacao/Guia_de_Apresentacao_SOA_UCB.md)
+- [Vídeo da demonstração da PoC](entrega/video/Demonstracao_PoC_SOA.mp4)
 - [Evidência: venda confirmada](entrega/evidencias/01-sucesso-venda.png)
 - [Evidência: estoque insuficiente](entrega/evidencias/02-estoque-insuficiente.png)
 
